@@ -4,14 +4,24 @@
 */
 
 function isPalindrome(str) {
-  str = str.toLowerCase();
-  let s=0, e=str.length-1;
-  while(s<e){
-    if(str[s]!==str[e]) return false;
-    s++;
-    e--;
-  }
-  return true;
+    str = str.toLowerCase();
+    let s = 0,
+        e = str.length - 1;
+
+    while (s < e) {
+        let isStartAlphabet = "a" <= str[s] && str[s] <= "z";
+        let isEndAlphabet = "a" <= str[e] && str[e] <= "z";
+        if (isStartAlphabet && isEndAlphabet) {
+            if (str[s] !== str[e]) {
+                return false;
+            }
+            s++;
+            e--;
+        }
+        if (!isStartAlphabet) s++;
+        if (!isEndAlphabet) e--;
+    }
+    return true;
 }
 
 module.exports = isPalindrome;
