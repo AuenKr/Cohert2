@@ -1,0 +1,75 @@
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+/* navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 12rem;
+    box-shadow: 2px 1px #eee;
+    box-sizing: border-box;
+}
+
+.homeLeft button {
+    background-color: white;
+    border: 0px solid white;
+}
+.homeLeft button img {
+    max-height: 20px;
+    padding: 10px;
+}
+.homeRight {
+    display: flex;
+}
+.homeRightItems {
+    color: #666;
+    padding: 20px;
+}
+.homeRightItems:hover {
+    cursor: pointer;
+    color: #387ed1;
+}
+/* Hamberger Design */
+#navbarBtn div {
+    background-color: black;
+    margin-bottom: 5px;
+    width: 25px;
+    border: 2px solid black;
+    border-radius: 20%;
+}
+
+/* Landing page */
+.landingPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 45px;
+}
+.landingPage img {
+    margin-bottom: 50px;
+    max-height: 40vh;
+}
+.landingPage h1 {
+    font-size: 2.75rem;
+    font-weight: 600;
+}
+.landingPage h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+.landingPageSignUp button {
+    margin-top: 25px;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    background-color: #387ed1;
+    color: #eee;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.landingPageSignUp button:hover {
+    cursor: pointer;
+    background-color: black;
+}
