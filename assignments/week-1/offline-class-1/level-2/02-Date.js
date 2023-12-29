@@ -26,3 +26,5 @@ function dateMethods() {
 
 // Example Usage for Date Methods
 dateMethods();
+
+// Why setDate 1->31 2->1...
