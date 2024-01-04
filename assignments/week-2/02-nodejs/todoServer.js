@@ -39,11 +39,72 @@
 
   Testing the server - run `npm run test-todoServer` command in terminal
  */
-  const express = require('express');
-  const bodyParser = require('body-parser');
-  
-  const app = express();
-  
-  app.use(bodyParser.json());
-  
-  module.exports = app;
+const express = require("express");
+const bodyParser = require("body-parser");
+const app = express();
+
+const { v4: uuidv4 } = require("uuid");
+const port = 3000;
+
+app.use(bodyParser.json());
+
+app.listen(port, () => {
+    console.log(`Port : ${port}`);
+});
+
+const todos = [
+    {
+        id: uuidv4(),
+        title: "Buy groceries",
+        completed: false,
+        description: "I should buy groceries",
+    },
+];
+
+app.get("/todos", (req, res) => {
+    res.json(todos);
+});
+
+app.get("/todos/:id", (req, res) => {
+    const { id } = req.params;
+    const todo = todos.find((todo) => todo.id === id);
+    if (todo) res.json(todo);
+    else res.status(404).send("Not Found");
+});
+
+app.post("/todos", (req, res) => {
+    const { title, completed, description } = req.body;
+    const todo = { id: uuidv4(), title, completed, description };
+    todos.push(todo);
+    res.status(201).send("Done");
+});
+
+app.put("/todos/:id", (req, res) => {
+    const { id } = req.params;
+    const { title, completed } = req.body;
+    const todo = todos.find((todo) => todo.id === id);
+    if (todo) {
+        todo.title = title;
+        todo.completed = completed;
+        res.send("OK");
+    } else {
+        res.status(404).send("Not Found");
+    }
+});
+
+app.delete("/todos/:id", (req, res) => {
+    const { id } = req.params;
+    const todoIndex = todos.findIndex((todo) => (todo) => todo.id === id);
+    if (todoIndex != -1) {
+        todos.splice(todoIndex, 1);
+        res.status(200).send("OK");
+    } else {
+        res.status(404).send("Not Found");
+    }
+});
+
+app.all("*", (req, res) => {
+    res.status(404).send("Not Found");
+});
+
+module.exports = app;
