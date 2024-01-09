@@ -7,15 +7,8 @@ mongoose.connect("mongodb://127.0.0.1:27017/courseApp");
 // Define schemas
 const AdminSchema = new mongoose.Schema({
     // Schema definition here
-    username: {
-        type: String,
-        required: true,
-    },
-    password: {
-        type: String,
-        required: true,
-        min: [5, "Min 5 length"],
-    },
+    username: String,
+    password: String,
 });
 
 const UserSchema = new mongoose.Schema({

@@ -1,8 +1,9 @@
 const express = require("express");
+const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const { all } = require("./routes/admin");
 const app = express();
+const jwtPassword = "sexx";
 
 // Middleware for parsing request bodies
 app.use(bodyParser.json());
@@ -43,37 +44,32 @@ const CourseSchema = new mongoose.Schema({
 // Middlewares
 function adminMiddleware(req, res, next) {
     // Implement admin auth logic
-    // You need to check the headers and validate the admin from the admin DB. Check readme for the exact headers to be expected
-    const { username, password } = req.headers;
-    Admin.findOne({
-        username: username,
-        password: password,
-    }).then((data) => {
-        if (data === null) {
-            res.status(404).send({
-                message: "Invalid userId/ Password",
-            });
-            return;
-        }
+    // using jwt token
+    const { authorization } = req.headers;
+    const token = authorization.split(" ")[1];
+    try {
+        jwt.verify(token, jwtPassword);
         next();
-    });
+    } catch (err) {
+        res.send({
+            msg: "Invalid",
+            error: err,
+        });
+    }
 }
 function userMiddleware(req, res, next) {
     // Implement admin auth logic
-    // You need to check the headers and validate the admin from the admin DB. Check readme for the exact headers to be expected
-    const { username, password } = req.headers;
-    User.findOne({
-        username: username,
-        password: password,
-    }).then((data) => {
-        if (data === null) {
-            res.status(404).send({
-                message: "Invalid userId/ Password",
-            });
-            return;
-        }
+    const { authorization } = req.headers;
+    const token = authorization.split(" ")[1];
+    try {
+        jwt.verify(token, jwtPassword);
         next();
-    });
+    } catch (err) {
+        res.send({
+            msg: "Invalid",
+            error: err,
+        });
+    }
 }
 
 const Admin = mongoose.model("Admin", AdminSchema);
@@ -101,8 +97,34 @@ app.post("/admin/signup", async (req, res) => {
     }
 });
 
-app.post("/admin/courses", adminMiddleware, (req, res) => {
+app.post("/admin/signin", (req, res) => {
+    // Implement admin signup logic
     const { username, password } = req.headers;
+    Admin.findOne({
+        username: username,
+        password: password,
+    })
+        .then((data) => {
+            if (data === null) {
+                res.status(404).send({
+                    message: "Invalid userId/ Password",
+                });
+                return;
+            } else {
+                const userData = {
+                    username: username,
+                };
+                let token = "Bearer ";
+                token += jwt.sign(userData, jwtPassword);
+                res.json({ token: token });
+            }
+        })
+        .catch((err) => {
+            res.send("On admin signin error");
+        });
+});
+
+app.post("/admin/courses", adminMiddleware, (req, res) => {
     const { title, description, price, imageLink } = req.body;
     const courseData = new Course({
         title: title,
@@ -113,7 +135,6 @@ app.post("/admin/courses", adminMiddleware, (req, res) => {
     courseData
         .save()
         .then((data) => {
-            console.log("Course data updated");
             const courseId = courseData._id;
             res.send({
                 message: "Course created successfully",
@@ -154,11 +175,40 @@ app.post("/users/signup", async (req, res) => {
         });
     }
 });
+
+app.post("/users/signin", (req, res) => {
+    // Implement admin signup logic
+    const { username, password } = req.headers;
+    User.findOne({
+        username: username,
+        password: password,
+    })
+        .then((data) => {
+            if (data === null) {
+                res.status(404).send({
+                    message: "Invalid userId/ Password",
+                });
+                return;
+            } else {
+                const userData = {
+                    username: username,
+                };
+                let token = "Bearer ";
+                token += jwt.sign(userData, jwtPassword);
+                res.json({ token: token });
+            }
+        })
+        .catch((err) => {
+            res.send("On user signin error");
+        });
+});
+
 app.get("/users/courses", userMiddleware, (req, res) => {
     Course.find().then((data) => {
         res.json(data);
     });
 });
+
 app.post("/users/courses/:courseId", userMiddleware, async (req, res) => {
     try {
         const { courseId } = req.params;
@@ -193,6 +243,28 @@ app.post("/users/courses/:courseId", userMiddleware, async (req, res) => {
     }
 });
 
+app.get("/users/purchasedCourses", userMiddleware, async (req, res) => {
+    // Implement fetching purchased courses logic
+    try {
+        const { authorization } = req.headers;
+        const token = authorization.split(" ")[1];
+        const { username } = jwt.decode(token);
+        const userData = await User.findOne({ username: username });
+        const purchasedCourses = userData.courseActive;
+        const resData = [];
+        for (let course of purchasedCourses) {
+            let courseData = await Course.findById(course);
+            resData.push(courseData);
+        }
+        res.json({
+            purchasedCourses: resData,
+        });
+    } catch (err) {
+        res.send({
+            error: err,
+        });
+    }
+});
 // Global catch
 app.use((err, req, res, next) => {
     res.send({
