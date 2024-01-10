@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
-const { string } = require("yargs");
-
+const {mongooseURL} = require("./../keys")
 // Connect to MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/courseApp");
+mongoose.connect(mongooseURL);
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({

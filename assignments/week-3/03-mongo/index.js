@@ -1,15 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const { all } = require("./routes/admin");
 const app = express();
+const mongodbUrl =require("./keys")
 
 // Middleware for parsing request bodies
 app.use(bodyParser.json());
 const PORT = 3000;
 
 // Connect to MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/courseApp");
+mongoose.connect(mongodbUrl);
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({

@@ -1,9 +1,10 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
+const {mongooseULR} = require("./keys")
 const jwtPassword = "123456";
 
-mongoose.connect("mongodb+srv://auenkumar64:AIHhn2cPyBEO3mkY@cluster0.xj64whe.mongodb.net/user_app");
+mongoose.connect(mongooseULR);
 
 const User = mongoose.model("User", {
     name: String,

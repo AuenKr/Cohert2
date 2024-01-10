@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
+const { mongooseURL } = require("./keys");
 const express = require("express");
 const app = express();
 const port = 3000;
 
-mongoose.connect(
-    "mongodb+srv://auenkumar64:AIHhn2cPyBEO3mkY@cluster0.xj64whe.mongodb.net/user_app"
-);
+mongoose.connect(mongooseURL);
 
 const newUser = mongoose.model("Users", {
     name: String,

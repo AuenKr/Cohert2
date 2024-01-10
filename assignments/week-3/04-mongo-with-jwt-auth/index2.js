@@ -2,15 +2,16 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const {mongooseURL} = require("./keys")
 const app = express();
-const jwtPassword = "sexx";
+const jwtPassword = "secret";
 
 // Middleware for parsing request bodies
 app.use(bodyParser.json());
 const PORT = 3000;
 
 // Connect to MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/courseApp");
+mongoose.connect(mongooseURL);
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({
