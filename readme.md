@@ -1,20 +1,16 @@
-## to to list
--> week2/nodejs/todoHard
-
 ## assignments
-
+-> week2/nodejs/todoHard
 2. week-2/async
-4. week3/middlewares
-5. week3/jwt
-6. week3/mongo
-7. week3/mongo-jwt-auth
+8. week4/assignment.html
+8. week4/react-basics
 
 ## videos
 
-### ->  week 3 offline videos 
-### ->  week 4.1 dom's 
-### ->  week 4.2 react basic 
-### ->  week 4.3 mongo db deepdive 
+### week 5.1 - React deep dive
+### week 5.2 - React todo project
+### week 6.1 - React more
+### week 6.2 - React useEffect, useCallbacks....
+
 
 
 
