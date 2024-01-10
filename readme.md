@@ -6,11 +6,10 @@
 
 ## videos
 
-### week 5.1 - React deep dive
-### week 5.2 - React todo project
-### week 6.1 - React more
-### week 6.2 - React useEffect, useCallbacks....
-
+### ->  week 3 offline videos 
+### ->  week 4.1 dom's 
+### ->  week 4.2 react basic 
+### ->  week 4.3 mongo db deepdive 
 
 
 
