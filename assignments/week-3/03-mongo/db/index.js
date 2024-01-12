@@ -1,8 +1,17 @@
 const mongoose = require("mongoose");
-const {mongooseURL} = require("./../keys")
+const { mongooseURL } = require("./keys");
 // Connect to MongoDB
 mongoose.connect(mongooseURL);
 
+const CourseSchema = new mongoose.Schema({
+    // Schema definition here
+    title: String,
+    description: String,
+    price: Number,
+    imageLink: String,
+    published: Boolean,
+});
+const Course = mongoose.model("Course", CourseSchema);
 // Define schemas
 const AdminSchema = new mongoose.Schema({
     // Schema definition here
@@ -21,21 +30,16 @@ const UserSchema = new mongoose.Schema({
         required: true,
         min: [5, "Min 5 length"],
     },
-    course: [String],
+    courseActive: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: Course,
+        },
+    ],
 });
-
-const CourseSchema = new mongoose.Schema({
-    // Schema definition here
-    title: String,
-    description: String,
-    price: Number,
-    imageLink: URL,
-    published: Boolean,
-});
-
 const Admin = mongoose.model("Admin", AdminSchema);
+
 const User = mongoose.model("User", UserSchema);
-const Course = mongoose.model("Course", CourseSchema);
 
 module.exports = {
     Admin,
