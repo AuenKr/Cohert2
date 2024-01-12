@@ -18,17 +18,21 @@ function App() {
   //     setTodos(data.todos)
   // });
   useEffect(() => {
-    fetch("http://localhost:3000/todos").then(async (res) => {
-      const data = await res.json();
-      setTodos(data.todos)
-    });
-  }, [])
-  console.log(todos)
-
+    fetch("http://localhost:3000/todos")
+      .then(async (res) => {
+        const data = await res.json();
+        setTodos(data.todos);
+      })
+    // setInterval(async () => {
+    //   const res = fetch("http://localhost:3000/todos")
+    //   const data = await res.json();
+    //   setTodos(data.todos);
+    // }, 5000);
+  }, []);
   return (
     <div>
-      <CreateTodo />
-      <Todos todos={todos} setTodos={setTodos} />
+      <CreateTodo todos={todos} setTodos={setTodos} />
+      <Todos todos={todos} />
     </div>
   )
 }

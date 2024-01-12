@@ -38,6 +38,7 @@ app.post("/todo", function (req, res) {
         .then((data) => {
             res.send({
                 msg: "Todo created",
+                todo: data
             });
         })
         .catch((err) => {
