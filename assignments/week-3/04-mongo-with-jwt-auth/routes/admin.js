@@ -1,6 +1,9 @@
 const { Router } = require("express");
 const adminMiddleware = require("../middleware/admin");
+const { Admin, Course } = require("../db/index");
 const router = Router();
+const jwt = require("jsonwebtoken");
+const jwtPass = "secret";
 
 // Admin Routes
 router.post("/signup", async (req, res) => {
@@ -25,12 +28,30 @@ router.post("/signup", async (req, res) => {
 
 router.post("/signin", (req, res) => {
     // Implement admin signup logic
-    res.send("On admin singin page")
+    const { username, password } = req.body;
+    Admin.findOne({
+        username,
+        password,
+    })
+        .then((data) => {
+            if (!data) {
+                res.status(404).send({
+                    message: "Invalid userId/ Password",
+                });
+                return;
+            }
+            const token = jwt.sign({ username }, jwtPass);
+            res.send({ token });
+        })
+        .catch((err) => {
+            res.status(400).send({
+                msg: "internal server error",
+            });
+        });
 });
 
 router.post("/courses", adminMiddleware, (req, res) => {
     // Implement course creation logic
-    const { username, password } = req.headers;
     const { title, description, price, imageLink } = req.body;
     const courseData = new Course({
         title: title,
@@ -41,7 +62,6 @@ router.post("/courses", adminMiddleware, (req, res) => {
     courseData
         .save()
         .then((data) => {
-            console.log("Course data updated");
             const courseId = courseData._id;
             res.send({
                 message: "Course created successfully",
