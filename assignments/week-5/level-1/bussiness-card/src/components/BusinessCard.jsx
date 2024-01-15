@@ -40,13 +40,4 @@ function BusinessCard(prop) {
 }
 
 export default BusinessCard;
-const data = {
-    card: "1",
-    name: "Golden Kumar",
-    description: "A upcoming best full stack devloper",
-    interestsHeader: "Interest",
-    interestsList: ["HTML, CSS, JS", "React", "Express", "MongoDb", "Zod/jsonwebtoken"],
-    linkedin: "https://www.linkedin.com/in/golden-kumar-32067b22b/",
-    twitter: "https://twitter.com/goldenkumar64",
-    otherSocialMedia: ["Github"],
-}
+
