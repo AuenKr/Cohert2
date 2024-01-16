@@ -1,8 +1,6 @@
 ## assignments
--> week2/nodejs/todoHard
+1. week2/nodejs/todoHard
 2. week-2/async
-8. week4/assignment.html
-9. week4/react-basics
 10. week5/level2
 11. week6/1
 12. week6/2
@@ -10,7 +8,12 @@
 
 ## videos
 
-### 
+
+## for Gsoc
+1. nextjs
+2. typescript 
+3. p5-js*3
+4. some extra classes*6 
 
 
 
