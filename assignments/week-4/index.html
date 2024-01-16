@@ -7,16 +7,29 @@
     let todoState = [];
     let oldTodoState = [];
 
-    function addTodoToDom() {
-      
+    function addTodoToDom(todoList) {
+      const todoDom = document.querySelector("#todos");
+      todoList.forEach(element => {
+        const todo = document.createElement("li");
+        todo.setAttribute("id", `todo-${element.id}`);
+        todo.innerHTML = `${element.title}<br/>${element.description}`;
+        todoDom.append(todo)
+      });
     }
 
-    function removeTodoFromDom(todo) {
-      
+    function removeTodoFromDom(todoList) {
+      todoList.forEach(todo => {
+        const todoItem = document.querySelector(`#todo-${element.id}`);
+        if (todoItem) todoItem.remove();
+      })
+
     }
 
-    function updateTodoInDom(oldTodo, newTodo) {
-        
+    function updateTodoInDom(todoList) {
+      todoList.forEach(todo => {
+        const todoItem = document.querySelector(`#todo-${element.id}`);
+        todo.innerHTML = `${element.title}<br/>${element.description}`;
+      })
     }
 
     function updateState(newTodos) {
@@ -28,10 +41,46 @@
       const added = [];
       const deleted = [];
       const updated = [];
+      // Added
+      for (let newTodo of newTodos) {
+        let isPresent = false;
+        for (let oldTodo of oldTodoState) {
+          if (oldTodo.id === newTodo.id) {
+            isPresent = true;
+            break;
+          }
+        }
+        if (!isPresent) added.push(newTodo);
+      }
+      // Delete
+      for (let oldTodo of oldTodoState) {
+        let isPresent = false;
+        for (let newTodo of newTodos) {
+          if (oldTodo.id === newTodo.id) {
+            isPresent = true;
+            break;
+          }
+        }
+        if (!isPresent) deleted.push(oldTodo);
+      }
+      //Updated
+      for (let newTodo of newTodos) {
+        isUpdated = false;
+        for (let oldTodo of oldTodoState) {
+          if (oldTodo.id === newTodo.id && (oldTodo.title !== newTodo.title || oldTodo.description !== newTodo.description)) {
+            isUpdated = true;
+            break;
+          }
+        }
+        if (isUpdated) updated.push(newTodo);
+      }
       // calculate these 3 arrays
       // call addTodo, removeTodo, updateTodo functions on each of the
       // elements
-      oldTodoState = newTodos;
+      addTodoToDom(added);
+      removeTodoFromDom(deleted);
+      updateTodoInDom(updated);
+      oldTodoState = [...newTodos];
     }
 
     function addTodo() {
@@ -48,13 +97,13 @@
 </head>
 
 <body>
+
   <input type="text" id="title" placeholder="Todo title"></input> <br /><br />
   <input type="text" id="description" placeholder="Todo description"></input> <br /><br />
   <button onclick="addTodo()">Add todo</button>
   <br /> <br />
 
   <div id="todos">
-
   </div>
 </body>
 
