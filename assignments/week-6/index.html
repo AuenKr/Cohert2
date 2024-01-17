@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Example</title>
+</head>
+
+<body>
+
+    <!-- Text input field -->
+    <input type="text" id="myInput" placeholder="Type something">
+
+    <!-- Button to trigger focus -->
+    <button onclick="focusInput()">Focus Input</button>
+
+    <script>
+        function focusInput() {
+            // Get the input element by its ID
+            var inputElement = document.getElementById("myInput");
+
+            // Check if the input element exists
+            if (inputElement) {
+                // Focus on the input element
+                inputElement.focus();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
