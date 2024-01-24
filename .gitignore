@@ -3,3 +3,6 @@ node_modules
 .vscode
 temp.js
 keys.js
+.env
+config.js 
+config.jsx
