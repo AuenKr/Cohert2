@@ -6,7 +6,9 @@ async function authMiddleware(req, res, next) {
     const { authorization } = req.headers;
 
     if (!authorization || !authorization.startsWith("Bearer ")) {
-        return res.status(403).json({});
+        return res.status(403).json({
+            msg : "Invalid authorization"
+        });
     }
 
     const token = authorization.split(" ")[1];
