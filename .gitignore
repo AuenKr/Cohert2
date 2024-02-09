@@ -4,5 +4,6 @@ node_modules
 temp.js
 keys.js
 .env
-config.js 
-config.jsx
+config.*
+package-lock.json
+dist
