@@ -5,12 +5,12 @@
 11. week7.3 assignment
 
 ## videos
-nike landing page
+
 
 ## for Gsoc
 1. nextjs
-2. typescript 
-4. some extra classes*6 
+6. docker 2
+7. monorepo
 
 
 
