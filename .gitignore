@@ -8,3 +8,4 @@ config.*
 package-lock.json
 dist
 *.pem
+temp
