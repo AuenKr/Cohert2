@@ -1,4 +1,4 @@
-import { client } from "..";
+import { client } from "../index";
 /*
  * Function should insert a new todo for this user
  * Should return a todo object
