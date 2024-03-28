@@ -1,0 +1,13 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const adminHeading_1 = __importDefault(require("@repo/ui/adminHeading"));
+function AdminPage() {
+    return (<div>
+            <adminHeading_1.default>On Admin Page</adminHeading_1.default>
+            
+        </div>);
+}
+exports.default = AdminPage;
