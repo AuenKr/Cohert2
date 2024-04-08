@@ -1,0 +1,16 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "dev": {
+      "dependsOn": ["^db:generate"],
+      "cache": false
+    },
+    "build": {
+      "dependsOn": ["^db:generate"],
+      "outputs": ["your-outputs-here"]
+    },
+    "db:generate": {
+      "cache": false
+    }
+  }
+}

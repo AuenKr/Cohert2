@@ -1,0 +1,21 @@
+{
+  "name": "@repo/db",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "types": "index.ts",
+  "license": "MIT",
+  "scripts": {
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push --skip-generate"
+  },
+  "dependencies": {
+    "@prisma/client": "5.11.0",
+    "@types/node": "^20.12.2",
+    "prisma": "^5.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  },
+  "exports": {
+    "./client" : "./src/index.ts"
+  }
+}
