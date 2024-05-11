@@ -7,12 +7,14 @@
 14. week11
 
 ## videos
+week 21.2 pubsub backend state
+week 22.2 ASG
+week 22.3 && .4 Indexing and Normalization
+week 23.2 webrtc code
 
 
-## for Gsoc
-6. docker 2
-7. monorepo
-
-
+##project
+agritech - similar to ecommerce
+warriorAudi - 
 
 
