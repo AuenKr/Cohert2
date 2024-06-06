@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  db:
+    image: postgres
+    container_name: integrationTest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin123
+    ports:
+      - '5433:5432'
