@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: express-app-service
+  namespace: backend
+spec:
+  selector:
+    app: express-app
+  ports:
+    - protocol: TCP
+      port: 80          # port through internal pod communicate with each other
+      targetPort: 3000  # port on which application present
+      nodePort: 30007   # This port can be any valid port within the NodePort range
+  type: NodePort

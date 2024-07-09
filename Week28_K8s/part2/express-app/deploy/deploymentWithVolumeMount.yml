@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-app-deployment
+  namespace: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: express-app
+  template:
+    metadata:
+      labels:
+        app: express-app
+    spec:
+      containers:
+      - name: express-app
+        image: auenkr/express-test-app
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+        - name: env-file
+          readOnly: true
+          mountPath: /app/config
+      volumes:
+      - name: env-file
+        secret:
+          secretName: express-app-secret

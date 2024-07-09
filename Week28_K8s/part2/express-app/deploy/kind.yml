@@ -1,17 +1,16 @@
-# three node (two workers) cluster config
 kind: Cluster
-name: test-cluster
 apiVersion: kind.x-k8s.io/v1alpha4
+name: express-app
 nodes:
 - role: control-plane
   extraPortMappings:
   - containerPort: 30007
-    hostPort: 30007
+    hostPort: 3007
 - role: worker
   extraPortMappings:
   - containerPort: 30007
-    hostPort: 30008
+    hostPort: 3008
 - role: worker
   extraPortMappings:
   - containerPort: 30007
-    hostPort: 30009
+    hostPort: 3009

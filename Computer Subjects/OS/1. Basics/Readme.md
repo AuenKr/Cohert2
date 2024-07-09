@@ -38,7 +38,7 @@ The OS provides a user with an interface that makes any application attractive a
 
   ![Process Management](./images/ProcessManagement.png)
 
-  There is various type of scheduling techniques that are used by the operating systems:
+  There is various type of scheduling techniques that are used by the OS:
 
   - Shortest Job First(SJF): The process which needs the shortest CPU time is scheduled first.
 
@@ -226,25 +226,25 @@ The OS provides a user with an interface that makes any application attractive a
 
       - There is not any facility for user interaction of system resources with the system.
 
-3.  Multi-Processing Operating System
+3.  Multi-Processing OS
 
-    Multi-Processing Operating System is a type of Operating System in which more than one CPU is used for the execution of resources. It betters the throughput of the System.
+    Multi-Processing OS is a type of OS in which more than one CPU is used for the execution of resources. It betters the throughput of the System.
 
-    ![Multi-Processing Operating System](./images/Multi-ProcessingOperatingSystem.png)
+    ![Multi-Processing OS](./images/Multi-ProcessingOperatingSystem.png)
 
-    - Advantages of Multi-Processing Operating System
+    - Advantages of Multi-Processing OS
 
       - It increases the throughput of the system.
 
       - As it has several processors, so, if one processor fails, we can proceed with another processor.
 
-    - Disadvantages of Multi-Processing Operating System
+    - Disadvantages of Multi-Processing OS
 
       - Due to the multiple CPU, it can be more complex and somehow difficult to understand.
 
-4.  Multi-Tasking Operating System
+4.  Multi-Tasking OS
 
-    Multitasking Operating System is simply a multiprogramming Operating System with having facility of a Round-Robin Scheduling Algorithm. It can run multiple programs simultaneously.
+    Multitasking OS is simply a multiprogramming OS with having facility of a Round-Robin Scheduling Algorithm. It can run multiple programs simultaneously.
 
     There are two types of Multi-Tasking Systems which are listed below.
 
@@ -252,19 +252,19 @@ The OS provides a user with an interface that makes any application attractive a
 
     - [Cooperative Multi-Tasking](https://www.geeksforgeeks.org/difference-between-preemptive-and-cooperative-multitasking/)
 
-    ![Multi-Tasking Operating System](./images/Multi-TaskingOperatingSystem.png)
+    ![Multi-Tasking OS](./images/Multi-TaskingOperatingSystem.png)
 
-    - Advantages of Multi-Tasking Operating System
+    - Advantages of Multi-Tasking OS
 
-      - Multiple Programs can be executed simultaneously in Multi-Tasking Operating System.
+      - Multiple Programs can be executed simultaneously in Multi-Tasking OS.
 
       - It comes with proper memory management.
 
-    - Disadvantages of Multi-Tasking Operating System
+    - Disadvantages of Multi-Tasking OS
 
       - The system gets heated in case of heavy programs multiple times.
 
-5.  Time-Sharing Operating Systems
+5.  Time-Sharing OS
 
     Each task is given some time to execute so that all the tasks work smoothly.
 
@@ -276,7 +276,7 @@ The OS provides a user with an interface that makes any application attractive a
 
     The time that each task gets to execute is called `quantum`. After this time interval is over OS switches over to the next task.
 
-    ![Time-Sharing Operating Systems](./images/Time-SharingOperatingSystems.png)
+    ![Time-Sharing OS](./images/Time-SharingOperatingSystems.png)
 
     - Advantages of Time-Sharing OS
 
@@ -300,7 +300,7 @@ The OS provides a user with an interface that makes any application attractive a
 
       - Data communication problem.
 
-      - High Overhead: Time-sharing systems have a higher overhead than other operating systems due to the need for scheduling, context switching, and other overheads that come with supporting multiple users.
+      - High Overhead: Time-sharing systems have a higher overhead than other OS due to the need for scheduling, context switching, and other overheads that come with supporting multiple users.
 
       - Complexity: Time-sharing systems are complex and require advanced software to manage multiple users simultaneously. This complexity increases the chance of bugs and errors.
 
@@ -308,15 +308,15 @@ The OS provides a user with an interface that makes any application attractive a
 
     - Examples of Time-Sharing OS with explanation
 
-      - IBM VM/CMS: IBM VM/CMS is a time-sharing operating system that was first introduced in 1972. It is still in use today, providing a virtual machine environment that allows multiple users to run their own instances of operating systems and applications.
+      - IBM VM/CMS: IBM VM/CMS is a time-sharing OS that was first introduced in 1972. It is still in use today, providing a virtual machine environment that allows multiple users to run their own instances of OS and applications.
 
-      - TSO (Time Sharing Option): TSO is a time-sharing operating system that was first introduced in the 1960s by IBM for the IBM System/360 mainframe computer. It allowed multiple users to access the same computer simultaneously, running their own applications.
+      - TSO (Time Sharing Option): TSO is a time-sharing OS that was first introduced in the 1960s by IBM for the IBM System/360 mainframe computer. It allowed multiple users to access the same computer simultaneously, running their own applications.
 
-      - Windows Terminal Services: Windows Terminal Services is a time-sharing operating system that allows multiple users to access a Windows server remotely. Users can run their own applications and access shared resources, such as printers and network storage, in real-time.
+      - Windows Terminal Services: Windows Terminal Services is a time-sharing OS that allows multiple users to access a Windows server remotely. Users can run their own applications and access shared resources, such as printers and network storage, in real-time.
 
-6.  Distributed Operating System
+6.  Distributed OS
 
-    These types of operating system is a recent advancement in the world of computer technology and are being widely accepted all over the world and, that too, at a great pace.
+    These types of OS is a recent advancement in the world of computer technology and are being widely accepted all over the world and, that too, at a great pace.
 
     Various autonomous interconnected computers communicate with each other using a shared communication network.
 
@@ -326,11 +326,11 @@ The OS provides a user with an interface that makes any application attractive a
 
     These systems processors differ in size and function.
 
-    The major benefit of working with these types of the operating system is that it is always possible that one user can access the files or software which are not actually present on his system but some other system connected within this network i.e., `remote access` is enabled within the devices connected in that network.
+    The major benefit of working with these types of the OS is that it is always possible that one user can access the files or software which are not actually present on his system but some other system connected within this network i.e., `remote access` is enabled within the devices connected in that network.
 
-    ![Distributed Operating System](./images/DistributedOperatingSystem.png)
+    ![Distributed OS](./images/DistributedOperatingSystem.png)
 
-    - Advantages of Distributed Operating System
+    - Advantages of Distributed OS
 
       - Failure of one will not affect the other network communication, as all systems are independent of each other.
 
@@ -344,7 +344,7 @@ The OS provides a user with an interface that makes any application attractive a
 
       - Delay in data processing reduces.
 
-    - Disadvantages of Distributed Operating System
+    - Disadvantages of Distributed OS
 
       - Failure of the main network will stop the entire communication.
 
@@ -352,7 +352,7 @@ The OS provides a user with an interface that makes any application attractive a
 
       - These types of systems are not readily available as they are very expensive. Not only that the underlying software is highly complex and not understood well yet.
 
-    - Examples of Distributed Operating Systems are LOCUS, etc.
+    - Examples of Distributed OS are LOCUS, etc.
 
     - The distributed os must tackle the following issues:
 
@@ -360,19 +360,19 @@ The OS provides a user with an interface that makes any application attractive a
 
       - Control functions like scheduling, resource allocation, and deadlock detection have to be performed in several nodes to achieve computation speedup and provide reliable operation when computers or networking components fail.
 
-      - Messages exchanged by processes present in different nodes may travel over public networks and pass through computer systems that are not controlled by the distributed operating system. An intruder may exploit this feature to tamper with messages, or create fake messages to fool the authentication procedure and masquerade as a user of the system.
+      - Messages exchanged by processes present in different nodes may travel over public networks and pass through computer systems that are not controlled by the distributed OS. An intruder may exploit this feature to tamper with messages, or create fake messages to fool the authentication procedure and masquerade as a user of the system.
 
-7.  Network Operating System
+7.  Network OS
 
     These systems run on a server and provide the capability to manage data, users, groups, security, applications, and other networking functions.
 
-    These types of operating systems allow shared access to files, printers, security, applications, and other networking functions over a small private network.
+    These types of OS allow shared access to files, printers, security, applications, and other networking functions over a small private network.
 
-    One more important aspect of Network Operating Systems is that all the users are well aware of the underlying configuration, of all other users within the network, their individual connections, etc. and that’s why these computers are popularly known as `tightly coupled systems`.
+    One more important aspect of Network OS is that all the users are well aware of the underlying configuration, of all other users within the network, their individual connections, etc. and that’s why these computers are popularly known as `tightly coupled systems`.
 
-    ![Network Operating System](./images/NetworkOperatingSystem.png)
+    ![Network OS](./images/NetworkOperatingSystem.png)
 
-    - Advantages of Network Operating System
+    - Advantages of Network OS
 
       - Highly stable centralized servers.
 
@@ -382,7 +382,7 @@ The OS provides a user with an interface that makes any application attractive a
 
       - Server access is possible remotely from different locations and types of systems.
 
-    - Disadvantages of Network Operating System
+    - Disadvantages of Network OS
 
       - Servers are costly.
 
@@ -390,15 +390,15 @@ The OS provides a user with an interface that makes any application attractive a
 
       - Maintenance and updates are required regularly.
 
-    - Examples of Network Operating Systems are Microsoft Windows Server 2003, Microsoft Windows Server 2008, UNIX, Linux, Mac OS X, Novell NetWare, BSD, etc.
+    - Examples of Network OS are Microsoft Windows Server 2003, Microsoft Windows Server 2008, UNIX, Linux, Mac OS X, Novell NetWare, BSD, etc.
 
-8.  Real-Time Operating System
+8.  Real-Time OS
 
     These types of OSs serve real-time systems. The time interval required to process and respond to inputs is very small. This time interval is called response time.
 
     Real-time systems are used when there are time requirements that are very strict like missile systems, air traffic control systems, robots, etc.
 
-    - Types of Real-Time Operating Systems
+    - Types of Real-Time OS
 
       - Hard Real-Time Systems:
 
@@ -410,7 +410,7 @@ The OS provides a user with an interface that makes any application attractive a
 
         These OSs are for applications where time-constraint is less strict.
 
-      ![Real-Time Operating System](./images/Real-TimeOperatingSystem.png)
+      ![Real-Time OS](./images/Real-TimeOperatingSystem.png)
 
     - Advantages of RTOS
 
@@ -420,7 +420,7 @@ The OS provides a user with an interface that makes any application attractive a
 
       - Focus on Application: Focus on running applications and less importance on applications that are in the queue.
 
-      - Real-time operating system in the embedded system: Since the size of programs is small, RTOS can also be used in embedded systems like in transport and others.
+      - Real-time OS in the embedded system: Since the size of programs is small, RTOS can also be used in embedded systems like in transport and others.
 
       - Error Free: These types of systems are error-free.
 
@@ -438,13 +438,13 @@ The OS provides a user with an interface that makes any application attractive a
 
       - Thread Priority: It is not good to set thread priority as these systems are very less prone to switching tasks.
 
-    - Examples of Real-Time Operating Systems are Scientific experiments, medical imaging systems, industrial control systems, weapon systems, robots, air traffic control systems, etc.
+    - Examples of Real-Time OS are Scientific experiments, medical imaging systems, industrial control systems, weapon systems, robots, air traffic control systems, etc.
 
-#### Need of Operating Systems
+#### Need of OS
 
 - OS as a platform for Application programs:
 
-  The operating system provides a platform, on top of which, other programs, called `application programs` can run.
+  The OS provides a platform, on top of which, other programs, called `application programs` can run.
 
   These application programs help users to perform a specific task easily.
 
@@ -452,13 +452,13 @@ The OS provides a user with an interface that makes any application attractive a
 
 - Managing Input-Output unit:
 
-  The operating system also allows the computer to manage its own resources such as memory, monitor, keyboard, printer, etc.
+  The OS also allows the computer to manage its own resources such as memory, monitor, keyboard, printer, etc.
 
-  The operating system controls the various system input-output resources and allocates them to the users or programs as per their requirements.
+  The OS controls the various system input-output resources and allocates them to the users or programs as per their requirements.
 
 - Multitasking:
 
-  The operating system manages memory and allows multiple programs to run in their own space and even communicate with each other through shared memory.
+  The OS manages memory and allows multiple programs to run in their own space and even communicate with each other through shared memory.
 
   Multitasking gives users a good experience as they can perform several tasks on a computer at a time.
 
@@ -482,13 +482,11 @@ The OS provides a user with an interface that makes any application attractive a
 
   It helps to maintain the system and applications safe through the authorization process. Thus, the OS provides security to the system.
 
-
-
-#### Commonly Used Operating System
+#### Commonly Used OS
 
 1. Windows
 
-   Microsoft Windows is a collection of many graphics-oriented operating systems, first developed and launched in 1985 by the name Windows 1.0.
+   Microsoft Windows is a collection of many graphics-oriented OS, first developed and launched in 1985 by the name Windows 1.0.
 
    When it started it had the aim to provide a graphical shell to the then-famous MS-DOS which had a character user interface, but it didn’t gain much popularity then.
 
@@ -496,7 +494,7 @@ The OS provides a user with an interface that makes any application attractive a
 
 2. UNIX
 
-   Developed in 1970 in the Bell Lab research center UNIX became a multitasking and multiuser operating system, reaching numerous platforms for use.
+   Developed in 1970 in the Bell Lab research center UNIX became a multitasking and multiuser OS, reaching numerous platforms for use.
 
    It was developed by Ken Thompson, Dennis Ritchie, and a few others and later AT&T licensed UNIX to the development of many variants of Unix, serving academic and business purposes at the University of California, Berkley Software Distribution, IBM, Microsoft, and Sun Microsystem.
 
@@ -508,7 +506,7 @@ The OS provides a user with an interface that makes any application attractive a
 
    - Advantages of UNIX
 
-     - The OS is available on a wide variety of machines that are the most truly portable operating system.
+     - The OS is available on a wide variety of machines that are the most truly portable OS.
 
      - It has a Very efficient virtual memory system, which allows many programs to run simultaneously with a modest amount of physical memory and time.
 
@@ -530,11 +528,11 @@ The OS provides a user with an interface that makes any application attractive a
 
    It is built around the Linux kernel and served for both desktop and server use.
 
-   Linux was originally developed for personal computers based on the Intel x86 architecture but since then it was ported to more platforms than any other operating system.
+   Linux was originally developed for personal computers based on the Intel x86 architecture but since then it was ported to more platforms than any other OS.
 
-   Linux has the largest installed base of all general-purpose operating systems.
+   Linux has the largest installed base of all general-purpose OS.
 
-   It is also the leading operating system on servers and other big iron systems such as mainframe computers, and the only OS used on TOP500 Supercomputers.
+   It is also the leading OS on servers and other big iron systems such as mainframe computers, and the only OS used on TOP500 Supercomputers.
 
    The top Linux OS are Ubuntu, Fedora, OpenSUSE, RedHat, and many more.
 
@@ -560,7 +558,7 @@ The OS provides a user with an interface that makes any application attractive a
 
 4. BOSS
 
-   It stands for Bharat Operating System Solutions designed specifically by India for Indians.
+   It stands for Bharat OS Solutions designed specifically by India for Indians.
 
    It was developed by C-DAC(Centre for Development of Advanced Computing), Chennai, to benefit the Free/Open Source Software in India.
 

@@ -10,3 +10,4 @@ dist
 *.pem
 temp
 .wrangler
+*.out
