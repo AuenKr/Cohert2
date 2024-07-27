@@ -1,0 +1,7 @@
+services:
+  backend:
+    container_name: random-string
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./generated:/app/generated

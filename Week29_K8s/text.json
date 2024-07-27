@@ -1,0 +1,40 @@
+{
+  "props": {
+    "pageProps": {
+      "token": "f8f9ca0a33237a8f5f26f7e5bb44eb5e",
+      "watermark": "auenkumar64@gmail.com\n7002979846",
+      "urls": [
+        {
+          "bitrate": "1080p",
+          "quality": "1080p",
+          "path": "https://appx-static.akamai.net.in/testing/ck-master.m3u8?quality=1080p",
+          "backup_url": "",
+          "backup_url2": "",
+          "kstr": "P9bCYRSvz0ZEZeOwkmVUyoxe9ijUHj9z2a7Wj285MGE=",
+          "jstr": "DZTLH80V6mU8xTknW7Gm7xWYpqXb2GnC3RmbcYZcoGSTaAOLH3+huODIBLJe2/x9aFpIGWKJAD7LzhvqXuqwpAyw37QF+O5QtySlnxBlawMi"
+        }
+      ],
+      "isMobile": false,
+      "isIos": false,
+      "isLive": false,
+      "quality": "360p",
+      "isPremier": "0",
+      "startDate": "",
+      "gcp_cookie": "",
+      "datetime": "1721462584308",
+      "ivb6": "DMNntjGo866agOVFKNoDkQ==",
+      "enable_adaptivebitrate": 0
+    },
+    "__N_SSP": true
+  },
+  "page": "/secure-player",
+  "query": {
+    "token": "f8f9ca0a33237a8f5f26f7e5bb44eb5e",
+    "watermark": "auenkumar64@gmail.com\n7002979846"
+  },
+  "buildId": "p6OibycnIz04bNvtiQxCH",
+  "isFallback": false,
+  "gssp": true,
+  "appGip": true,
+  "scriptLoader": []
+}
