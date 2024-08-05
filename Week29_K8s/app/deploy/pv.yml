@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes: 
+    - ReadWriteMany
+  storageClassName: nfs
+  nfs:
+    path: /test # path where nfs storage is mount
+    server: 0.0.0.0 # ip of ec2 on which nfs server running
