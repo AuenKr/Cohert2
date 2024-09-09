@@ -11,3 +11,4 @@ dist
 temp
 .wrangler
 *.out
+temp.txt
