@@ -4,6 +4,7 @@ import express from 'express';
 dotenv.config({
   path: "./config/.env"
 })
+
 const app = express();
 const port = 3000;
 

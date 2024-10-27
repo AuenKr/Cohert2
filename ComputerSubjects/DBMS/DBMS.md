@@ -430,23 +430,34 @@ An Entity is a “thing” or “object” in the real world that is distinguish
 
 2. **Specialisation**
 
+- Reduce data redundancy.
+
+- previous model
+  - ![Extend ER Model Without Specialisation](./images/ExtentERModelPrev.png)
+
+- With Specialisation (is-a relationship) using Top-Down appraoch
+  - ![Extend ER Model With Specialisation](./images/ExtentERModelAfterSpecialisation.png)
+
 - In ER model, we may require to subgroup an entity set into other entity sets that are distinct in some way with other entity sets.
 
-- Specialisation is splitting up the entity set into further sub entity sets on the basis of their functionalities, specialities and features.
+- **Specialisation is splitting up** the entity set into further **sub entity sets** on the basis of their **functionalities, specialities and features.**
 
-- It is a Top-Down approach.
+- It is a **Top-Down** approach.
 
-- e.g., Person entity set can be divided into customer, student, employee. Person is superclass and other specialised entity sets are subclasses.
-    1. We have “is-a” relationship between superclass and subclass.
+- **Symbol**
+  - ![specialisation Symbol](./images/Specialisation.png)
+
+- e.g., **Person entity** set can be divided into **customer, student, employee.** Person is **superclass** and other **specialised entity sets** are subclasses.
+    1. We have **“is-a”** relationship between superclass and subclass.
     2. Depicted by triangle component.
 
-- Why Specialisation?
+- **Why Specialisation?**
     1. Certain attributes may only be applicable to a few entities of
 the parent entity set.
     2. DB designer can show the distinctive features of the sub entities.
     3. To group such entities we apply Specialisation, to overall refine the DB blueprint.
 
-3. Generalisation
+3. **Generalisation**
 
 - It is just a reverse of Specialisation.
   
@@ -462,7 +473,7 @@ the parent entity set.
     1. Makes DB more refined and simpler.
     2. Common attributes are not repeated.
 
-4. Attribute Inheritance
+4. **Attribute Inheritance**
 
 - Both Specialisation and Generalisation, has attribute inheritance.
 
@@ -470,14 +481,93 @@ the parent entity set.
 
 - E.g., Customer & Employee inherit the attributes of Person.
 
-5. Participation Inheritance
+5. **Participation Inheritance**
 
 - If a parent entity set participates in a relationship then its child entity sets will also participate in that relationship.
 
-6. Aggregation
+6. **Aggregation**
+
+- Before Aggregation
+  - ![Before Aggregation](./images/BeforeAggregation.png)
+
+- After Aggregation
+  - ![After Aggregation](./images/AfterAggregation.png)
+  - ![Example 2 Aggregatione](./images/AfterAggregation2.png)
 
 - How to show relationships among relationships? - Aggregation is the technique.
 
 - Abstraction is applied to treat relationships as higher-level entities. We can call it Abstract entity.
 
 - Avoid redundancy by aggregating  relationship as an entity set itself.
+
+## Lecture 5: ER Models
+
+> Steps to make ER diagram
+
+1. Identify entity sets
+2. Identify attribute and their types
+3. Identify Relational-ship and constraint(mapping and participate).
+
+#### ER Model of banking systems
+
+1. Identify entity sets
+
+- Banking system - branch
+
+- Bank -> customer
+
+- Customer -> account and take loan
+
+- Customer associates with some bankers
+
+- Bank has employee
+
+- account
+  - Saving account
+  - Current account
+
+- Loan originated by branch
+  - Loan >= 1 customer (single loan under two customer(husband and wife))
+  - Payment scheduling
+
+2. Identify the attributes and their types(using bottom approach)
+
+1. Branch -> name(primary Key), city, onsets, liabilities
+2. Customer -> custId(primary Key), name, address, contact no, DOB, age
+3. Employee -> emp_id(primary key), name, contact_no, dependent-name(Multi-valued), year_of_service(derived), start_date(single value).
+4. account
+
+- Saving Account -> acc_No, balance, interest_rate, daily_withdraw_limit
+- Current Account -> acc_No, balance, overdraft_amount, per_transaction_charge
+- Account -> account_No, balance (using Generalisation).
+
+  5. Loan -> local_no, amount
+  6. Payment(loan) - weak entity Payment -> Payment_No, date, amount
+
+  3. Relational and constraints
+
+  1. Customer burrow Loan (M: N :: many to many) with constraints that if loan exist one Customer must exits.
+
+  2. Loan originated by branch (N : 1)
+
+  3. Loan loan-payment Payment (weak entity)
+
+  4. Customer deposit account (M:N)
+
+  5. Customer backer Employee (N:1)
+
+  6. Employee manage by employee (N:1)
+
+> Final output:
+![ER model of bank](./images/ER_BANK.png)
+
+H.W :
+
+- Online delivery system
+- University
+
+## Lecture 6: Facebook ER Model
+
+1. Profile -> User_post -> friends
+2. User can post
+3. Post -> Text content, image, video, like, comment.

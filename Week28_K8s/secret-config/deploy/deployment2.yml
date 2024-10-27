@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecom-backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecom-backend
+  template:
+    metadata:
+      labels:
+        app: ecom-backend
+    spec:
+      containers:
+        - name: ecom-backend
+          image: 100xdevs/env-backend
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: env-file
+              readOnly: true
+              ##              mountPath: "/app/.env"
+              ##              subPath: ".env"
+              mountPath: "/app/config"
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+      volumes:
+        - name: env-file
+          secret:
+            secretName: dotfile-secret
