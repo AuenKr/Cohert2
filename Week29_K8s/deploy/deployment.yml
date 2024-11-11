@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shared-volume-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shared-volume-app
+  template:
+    metadata:
+      labels:
+        app: shared-volume-app
+    spec:
+      containers:
+        - name: writer
+          image: busybox
+          command:
+            [
+              "/bin/sh",
+              "-c",
+              "while true; do echo $(date) From writer >> /data/app.log; sleep 10; done",
+            ]
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          volumeMounts:
+            - name: shared-data # This is local storage
+              mountPath: /data
+            - name: shared-data-nfs # This is NFS storage
+              mountPath: /data-nfs
+        - name: reader
+          image: busybox
+          command:
+            [
+              "/bin/sh",
+              "-c",
+              "while true; do cat /data/app.log; sleep 10; done",
+            ]
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          volumeMounts:
+            - name: shared-data # This is local storage
+              mountPath: /data
+            - name: shared-data-nfs # This is NFS storage
+              mountPath: /data-nfs
+      volumes:
+        - name: shared-data
+          emptyDir: {}
+        - name: shared-data-nfs
+          persistentVolumeClaim:
+            claimName: persistent-volume-claim
