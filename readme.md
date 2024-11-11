@@ -9,10 +9,10 @@
 
 ## videos
 
-week 21.2 pubsub backend state
-week 22.2 ASG
-week 22.3 && .4 Indexing and Normalization
-week 23.2 webrtc code
+1. week 21.2 pubsub backend state
+2. week 22.2 ASG
+3. week 22.3 && .4 Indexing and Normalization
+4. week 23.2 webrtc code
 
 ## project
 
@@ -21,38 +21,59 @@ week 23.2 webrtc code
 ### DSA
 
 Week 8.2 Queues start and question 1
+
 Week 9.1 Stack
+
 Week 9.2 Stack
+
 Week 10.1 | Heaps & Priority Queues - 1
+
 Week 10.2 | Heaps & Priority Queues - 2
+
 Week 11.1 Priority queue 3
 
 Week 11.1 Tree 2
+
 Week 11.2 Tree 3
+
 Week 11.3 BST 1
+
 Week 11.4 BST 2
+
 Week 13.1 Trees problem solving
+
 Week 13.2 Tries
 
 Week 15.1 2D DP
+
 Week 15.2 Knapsack and DP
+
 DSA 36 | partition DP
+
 DSA 37 | DP Miscellaneous
 
 DSA 39 | Binary Search 1
+
 DSA 40 | Binary Search 2
+
 DSA 41 | Binary Search 3
 
-Missing Video
+#### Missing Video
+
 DSA 13 | Problems on Bit Manipulation
+
 DSA 15 | Back Tracking - 2 | 08/07
+
 DSA 16 | Sorting-1 Problems (Merge)
 
 DSA 36 | partition DP
+
 DSA 37 | DP Miscellaneous
 
 DSA 39 | Binary Search 1
+
 DSA 40 | Binary Search 2
+
 DSA 41 | Binary Search 3
 
 ### Web 3
@@ -60,6 +81,7 @@ DSA 41 | Binary Search 3
 1. Week 4
 
 4.1 | Solana Jargons, Programming Models, Tokens
+
 4.2 | Solana Jargon, Programming model, Tokens (Offline)
 
 2. Week 5
@@ -107,5 +129,7 @@ DSA 41 | Binary Search 3
 ### Extras
 
 K8s
+
 zapier project
+
 exchange project
