@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "First Extension",
+  "version": "1.0",
+  "description": "A React-based browser extension",
+  "icons": {
+    "16": "vite.svg",
+    "48": "vite.svg",
+    "128": "vite.svg"
+  },
+  "permissions": ["activeTab", "storage"],
+  "background": {
+    "service_worker": "extension/background.js"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "vite.svg"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["extension/content.js"]
+    }
+  ]
+}

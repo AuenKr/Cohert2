@@ -1,0 +1,23 @@
+meta {
+  name: Delete All
+  type: http
+  seq: 10
+}
+
+delete {
+  url: {{base_url}}/movie/all
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "movie": "Deadpool 2",
+    "watched": false
+  }
+}
+
+body:form-urlencoded {
+  movie: Test 1
+  watched: false
+}

@@ -1,0 +1,18 @@
+meta {
+  name: Test api 3
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{base_url}}/course/123
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "tetfdsafdfdsafds",
+    "price": 123
+  }
+}

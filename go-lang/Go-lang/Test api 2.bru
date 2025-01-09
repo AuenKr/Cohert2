@@ -1,0 +1,24 @@
+meta {
+  name: Test api 2
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/course
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "tetfdsafd",
+    "price": 123,
+     "author": {
+        "fullName": "fdsfdJohn Doe",
+        "website": "www.johndoe.com",
+       "ds": "fdsafd"
+    },
+    "resre": "fdsafds"
+  }
+}

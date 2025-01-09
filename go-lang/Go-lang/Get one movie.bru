@@ -1,0 +1,16 @@
+meta {
+  name: Get one movie
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{base_url}}/movie/677f69d0f5c8b0f722d0a789
+  body: json
+  auth: none
+}
+
+body:form-urlencoded {
+  movie: Test 1
+  watched: false
+}
