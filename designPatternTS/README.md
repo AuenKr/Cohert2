@@ -1,47 +1,120 @@
-# Design Patterns in TypeScript
+### Approach to learning them
 
-This repository is part of the [Refactoring.Guru](https://refactoring.guru/design-patterns) project.
+## 1. Foundational Concepts:
 
-It contains TypeScript examples for all classic GoF design patterns. Each pattern includes two examples:
+> Object-Oriented Programming (OOP) Principles:
 
-- [x] **Conceptual** examples show the internal structure of patterns, including detailed comments.
+```text 
+Before diving into patterns, ensure you have a solid understanding of OOP concepts:
 
-- [x] **RealWorld** examples show how patterns can be used in real-world web applications.
-
-## Requirements
-
-For simplicity reasons, the examples are console apps. In order to launch them, you have to install [Node.js and NPM](https://nodejs.org/en/) on your computer and then install [TypeScript compiler](https://github.com/Microsoft/TypeScript) and [TypeScript Node extension](https://github.com/TypeStrong/ts-node) like this:
-
-```
-npm install -g typescript
-npm install -g ts-node
+a. Encapsulation
+b. Inheritance
+c. Polymorphism
+d. Abstraction
 ```
 
-When you have all the required software installed, the examples can be launched via the command line as follows:
+> SOLID Principles:
 
+```text
+Understanding the SOLID principles will greatly enhance your ability to grasp why design patterns are valuable.
+
+a. Single Responsibility Principle
+b. Open/Closed Principle
+c. Liskov Substitution Principle
+d. Interface Segregation Principle
+e. Dependency Inversion Principle
 ```
-ts-node src/Path-to-example/Example.ts
-```
 
-For the best experience, I recommend working with examples with these IDEs:
+## 2. Creational Patterns (Focus on Object Creation)
 
-- [WebStorm](https://www.jetbrains.com/webstorm/)
-- [Visual Studio Code](https://code.visualstudio.com/)
+1. Singleton:
 
+> This is often the easiest to understand and is frequently used. It's a good starting point.
 
-## Contributor's Guide
+2. Factory Method:
 
-I appreciate any help, whether it's a simple fix of a typo or a whole new example. Please read the [Contributor's Guide](CONTRIBUTING.md) to get more information.
+> Provides a good introduction to abstraction in object creation.
 
-## License
+3. Abstract Factory:
 
-This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+> Builds upon the Factory Method, introducing the concept of creating families of related objects.
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+4. Builder:
 
+> Helps to understand how to construct complex objects step-by-step.
 
-## Credits
+5. Prototype:
 
-Authors: Alexey Pyltsyn ([@lex111](https://github.com/lex111)) and Alexander Shvets ([@neochief](https://github.com/neochief))
+> Introduces the concept of cloning objects, which can be useful in specific scenarios.
 
-Contributors: [See the list of contributors](https://github.com/RefactoringGuru/design-patterns-typescript/graphs/contributors)
+## 3. Structural Patterns (Focus on Object Relationships)
+
+1. Adapter:
+
+> A very practical pattern that solves the common problem of interface incompatibility.
+
+2. Decorator:
+
+> Relatively easy to grasp and very useful for adding responsibilities to objects dynamically.
+
+3. Facade:
+
+> Simplifies complex subsystems, making them easier to use.
+
+4. Composite:
+
+> Helps in understanding how to represent hierarchical structures.
+
+5. Proxy:
+
+> This pattern is very powerful, and understanding it will give you a deeper understanding of object control.
+
+6. Bridge:
+
+> This one is a little more complex, but very useful for decoupling abstractions from implementations.
+
+7. Flyweight:
+
+> This is a pattern that is used for optimization, so it is better to understand the other structural patterns before it.
+
+## 4. Behavioral Patterns (Focus on Object Communication)
+
+1. Observer:
+
+> A fundamental pattern for event handling and communication.
+
+2. Strategy:
+
+> Helps in understanding how to encapsulate algorithms.
+
+3. Command:
+
+> Useful for encapsulating requests as objects.
+
+4. Template Method:
+
+> Provides a good introduction to how to define the skeleton of an algorithm.
+
+5. State:
+
+> This pattern helps to understand how to change an objects behavior based on its internal state.
+
+6. Chain of Responsibility:
+
+> This helps to understand how to pass requests along a chain of handlers.
+
+7. Iterator:
+
+> This is a very useful pattern for traversing collections of objects.
+
+8. Mediator:
+
+> This pattern helps to reduce complex dependencies between objects.
+
+9. Memento:
+
+> This pattern is very useful for implementing undo/redo functionality.
+
+10. Visitor:
+
+> This is a powerful but complex pattern that allows you to add operations to object structures without changing the structures themselves.
