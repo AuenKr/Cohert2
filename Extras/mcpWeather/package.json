@@ -1,0 +1,22 @@
+{
+  "name": "mcpweather",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "bun build src/index.ts --outfile=dist/index.js --target=node",
+    "dev": "bun run src/index.ts --hot"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^22.13.13"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "zod": "^3.24.2"
+  }
+}
