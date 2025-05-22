@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package todo;
+
+option go_package="todo/proto/todopb";
+
+message Todo {
+  int64 Id = 1;
+  string Task = 2;
+  bool Completed = 3;
+}
+
+message GetTodoRequest{}
+message GetTodoResponse{
+repeated Todo Data = 1;
+}
+
+message DeleteTodoRequest{
+  int64 Id = 1;
+}
+
+// CRUD
+service TodoService {
+  // Create
+  rpc CreateTodo(Todo) returns (Todo);
+  // Read
+  rpc GetTodo(GetTodoRequest)  returns (GetTodoResponse);
+  // Update
+  rpc UpdateTodo(Todo) returns (Todo);
+  // Delete
+  rpc DeleteTodo(DeleteTodoRequest) returns (Todo);
+}
