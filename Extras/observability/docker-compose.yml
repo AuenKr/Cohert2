@@ -1,0 +1,35 @@
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: observ_prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+
+  grafana:
+    image: grafana/grafana
+    container_name: observ_grafana
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - ./docker/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - ./docker/grafana/provisioning:/etc/grafana/provisioning:ro
+    depends_on:
+      - prometheus
+      - tempo
+
+  # Tempo
+  tempo:
+    image: grafana/tempo
+    container_name: observ_tempo
+    command: ["-config.file=/etc/tempo.yaml"]
+    ports:
+      - "3200:3200" # tempo
+      - "4317:4317" # otlp grpc
+    volumes:
+      - ./docker/tempo/tempo.yaml:/etc/tempo.yaml
+      - ./docker/tempo/tempo-data:/tmp/tempo
