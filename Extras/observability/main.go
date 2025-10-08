@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -21,7 +22,12 @@ const (
 )
 
 func main() {
-	log, _ := zap.NewProduction()
+	log, err := logger.InitLogger()
+	if err != nil {
+		fmt.Println("Error while initiallizing the logger\n", err)
+		panic(err)
+	}
+
 	defer func() {
 		if err := log.Sync(); err != nil {
 			log.Error("Logger Sync failed", zap.Error(err))
@@ -35,6 +41,7 @@ func main() {
 
 	mux.Handle("/ping", otelhttp.NewHandler(http.HandlerFunc(PingHandler), "PingHandler"))
 	mux.Handle("/work", otelhttp.NewHandler(http.HandlerFunc(WorkerHandler), "WorkerHandler"))
+	mux.Handle("/error", otelhttp.NewHandler(http.HandlerFunc(ErrorHandler), "ErrorHandler"))
 
 	mux.HandleFunc("/metrics", promhttp.Handler().ServeHTTP)
 
@@ -86,5 +93,28 @@ func WorkerHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 	}
 	w.Header().Add("Content-Type", "application/json")
+	w.Write(bytesData)
+}
+
+func ErrorHandler(w http.ResponseWriter, r *http.Request) {
+	ctx := r.Context()
+	_, span := tracer.GetTracer(TracerID).Start(ctx, "ErrorHandler")
+	defer span.End()
+
+	start := time.Now()
+
+	for range 10000000 {
+	}
+
+	response := struct {
+		Message string        `json:"message"`
+		Runtime time.Duration `json:"runtime"`
+	}{"Error message", time.Since(start)}
+	bytesData, err := json.Marshal(response)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+	}
+	w.Header().Add("Content-Type", "application/json")
+	w.WriteHeader(404)
 	w.Write(bytesData)
 }

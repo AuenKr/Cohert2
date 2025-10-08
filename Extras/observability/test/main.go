@@ -39,6 +39,7 @@ loop:
 			go func(j int) {
 				log.Println("req:", j)
 				sendHTTPRequest("/work")
+				sendHTTPRequest("/error")
 			}(i)
 			i++
 			time.Sleep(time.Millisecond * 100)

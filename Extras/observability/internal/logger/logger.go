@@ -8,6 +8,13 @@ import (
 	"go.uber.org/zap"
 )
 
+func InitLogger() (*zap.Logger, error) {
+	config := zap.NewProductionConfig()
+	config.Encoding = "json"                                  // JSON logs for Promtail
+	config.OutputPaths = []string{"stdout", "./logs/app.log"} // stdout + file
+	return config.Build()
+}
+
 func Logger(next http.Handler, logger *zap.Logger) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		start := time.Now()
