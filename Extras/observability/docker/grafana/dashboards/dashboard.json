@@ -478,6 +478,41 @@
       ],
       "title": "New panel",
       "type": "histogram"
+    },
+    {
+      "datasource": {
+        "type": "grafana-pyroscope-datasource",
+        "uid": "df0hox4q0i7swc"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 24,
+        "x": 0,
+        "y": 29
+      },
+      "id": 6,
+      "options": {},
+      "pluginVersion": "12.2.0-16557133545",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-pyroscope-datasource",
+            "uid": "df0hox4q0i7swc"
+          },
+          "groupBy": [],
+          "labelSelector": "",
+          "profileTypeId": "process_cpu:cpu:nanoseconds:cpu:nanoseconds",
+          "queryType": "profile",
+          "refId": "A",
+          "spanSelector": []
+        }
+      ],
+      "title": "Process-cpu",
+      "type": "flamegraph"
     }
   ],
   "preload": false,

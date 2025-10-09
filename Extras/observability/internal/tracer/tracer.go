@@ -20,7 +20,8 @@ const (
 // InitTracer creates a global tracer provider
 func InitTracer(serviceName string) func(context.Context) error {
 	ctx := context.Background()
-	// Exporter to stdout (for testing)
+
+	// Exporter to tempo
 	exp, err := otlptracegrpc.New(ctx,
 		otlptracegrpc.WithInsecure(),
 		otlptracegrpc.WithEndpoint(tempoURL),

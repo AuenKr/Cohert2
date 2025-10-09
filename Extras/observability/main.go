@@ -9,6 +9,7 @@ import (
 
 	"observability/internal/logger"
 	"observability/internal/metrics"
+	"observability/internal/profiler"
 	"observability/internal/tracer"
 
 	"github.com/prometheus/client_golang/prometheus/promhttp"
@@ -27,7 +28,6 @@ func main() {
 		fmt.Println("Error while initiallizing the logger\n", err)
 		panic(err)
 	}
-
 	defer func() {
 		if err := log.Sync(); err != nil {
 			log.Error("Logger Sync failed", zap.Error(err))
@@ -37,6 +37,10 @@ func main() {
 	shutdown := tracer.InitTracer(TracerID)
 	defer shutdown(context.Background())
 
+	// Profiler
+	profiler := profiler.InitProfiling(log)
+	defer profiler.Stop()
+
 	mux := http.NewServeMux()
 
 	mux.Handle("/ping", otelhttp.NewHandler(http.HandlerFunc(PingHandler), "PingHandler"))
@@ -45,8 +49,12 @@ func main() {
 
 	mux.HandleFunc("/metrics", promhttp.Handler().ServeHTTP)
 
+	// Logger Middleware
 	loggerMiddlerware := logger.Logger(mux, log)
-	handler := metrics.Middleware(loggerMiddlerware)
+	// Init TracerID context
+	initTraceMiddleware := otelhttp.NewHandler(loggerMiddlerware, TracerID)
+	// prometheus Middleware
+	handler := metrics.Middleware(initTraceMiddleware)
 
 	log.Info("Server starting", zap.String("port", address))
 	if err := http.ListenAndServe(address, handler); err != nil {

@@ -51,3 +51,11 @@ services:
     command: -config.file=/etc/promtail/promtail-config.yml
     depends_on:
       - loki
+
+  # Profiling
+  pyroscope:
+    image: grafana/pyroscope
+    container_name: observ_pyroscope
+    ports:
+      - "4040:4040"
+    command: ["server"]
