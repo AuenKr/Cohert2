@@ -1,0 +1,51 @@
+[
+  {
+    "labels": {
+      "job": "prometheus"
+    },
+    "targets": [
+      "localhost:9090"
+    ]
+  },
+  {
+    "labels": {
+      "job": "worker"
+    },
+    "targets": [
+      "host.docker.internal:8004"
+    ]
+  }
+  // {
+  //   "labels": {
+  //     "job": "k6",
+  //     "env": "production"
+  //   },
+  //   "targets": [
+  //     "host.docker.internal:9191"
+  //   ]
+  // },
+  // {
+  //   "labels": {
+  //     "job": "cadence"
+  //   },
+  //   "targets": [
+  //     "host.docker.internal:6969"
+  //   ]
+  // },
+  // {
+  //   "labels": {
+  //     "job": "grpc-server-1"
+  //   },
+  //   "targets": [
+  //     "host.docker.internal:9091"
+  //   ]
+  // },
+  // {
+  //   "labels": {
+  //     "job": "grpc-server-2"
+  //   },
+  //   "targets": [
+  //     "host.docker.internal:9092"
+  //   ]
+  // }
+]

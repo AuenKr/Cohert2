@@ -1,5 +1,17 @@
 apiVersion: 1
 
+providers:
+  - name: "default"
+    orgId: 1
+    folder: ""
+    type: file
+    disableDeletion: false
+    editable: true
+    # ADD THIS LINE (checks for changes every 10 seconds):
+    updateIntervalSeconds: 10
+    options:
+      path: /var/lib/grafana/dashboards
+
 datasources:
   - name: Prometheus
     type: prometheus
@@ -7,26 +19,25 @@ datasources:
     isDefault: true # Only needed because it's not the default `false`
     editable: true # Only needed because it's not the default `false`
 
-  - name: Tempo
-    type: tempo
-    url: http://tempo:3200
-    uid: tempo # Keep the UID for stable linking
-    jsonData:
-      httpMethod: GET
-
-  - name: Loki
-    type: loki
-    url: http://loki:3100
-    editable: true # Only needed because it's not the default `false`
-    jsonData:
-      derivedFields:
-        - name: TraceId
-          urlDisplayLabel: Tempo
-          url: 'http://localhost:3000/explore?left=["now-1h","now","Tempo",{"query":"$${__value.raw}"}]'
-          matcherRegex: '"trace_id":"([a-fA-F0-9]+)"'
-
+  # - name: Tempo
+  #   type: tempo
+  #   url: http://tempo:3200
+  #   uid: tempo # Keep the UID for stable linking
+  #   jsonData:
+  #     httpMethod: GET
+  #
+  # - name: Loki
+  #   type: loki
+  #   url: http://loki:3100
+  #   editable: true # Only needed because it's not the default `false`
+  #   jsonData:
+  #     derivedFields:
+  #       - name: TraceId
+  #         urlDisplayLabel: Tempo
+  #         url: 'http://localhost:3000/explore?left=["now-1h","now","Tempo",{"query":"$${__value.raw}"}]'
+  #         matcherRegex: '"trace_id":"([a-fA-F0-9]+)"'
+  #
   - name: Pyroscope
     type: grafana-pyroscope-datasource
     url: http://pyroscope:4040
     uid: pyroscope # Keep the UID for stable linking
-

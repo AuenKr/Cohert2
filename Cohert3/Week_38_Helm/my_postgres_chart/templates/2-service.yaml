@@ -1,0 +1,16 @@
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: {{ .Values.name }}
+  type:
+  ports:
+    - name: {{ .Values.name }}
+      protocol:
+      port: 6969
+      targetPort: 5432
+---

@@ -1,3 +1,5 @@
 docker/tempo/tempo-data/
 logs/
 
+data/
+

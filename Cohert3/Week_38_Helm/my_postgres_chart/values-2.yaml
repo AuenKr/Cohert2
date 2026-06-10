@@ -1,0 +1,8 @@
+name: my-postgres-2
+namespace: postgres-2
+postgresUser: user
+postgresPassword: password
+postgresDatabase: mydb2
+image:
+  repository: postgres
+  tag: "15"

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
 	"time"
 
 	"observability/internal/logger"
@@ -21,6 +22,8 @@ const (
 	address  = ":8080"
 	TracerID = "http_server"
 )
+
+var SERVER_PORT = os.Getenv("SERVER_PORT")
 
 func main() {
 	log, err := logger.InitLogger()
@@ -57,7 +60,7 @@ func main() {
 	handler := metrics.Middleware(initTraceMiddleware)
 
 	log.Info("Server starting", zap.String("port", address))
-	if err := http.ListenAndServe(address, handler); err != nil {
+	if err := http.ListenAndServe(fmt.Sprintf(":%s", SERVER_PORT), handler); err != nil {
 		log.Error("Error while starting the server", zap.Error(err))
 	}
 }

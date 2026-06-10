@@ -1,0 +1,20 @@
+services:
+  prometheus:
+    image: docker.io/prom/prometheus
+    container_name: observ_prometheus_vps
+    restart: always
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --web.config.file=/etc/prometheus/web.yml
+      - --web.enable-remote-write-receiver
+      - --web.enable-lifecycle
+      - --storage.tsdb.path=/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yml:ro
+      - ./web.yaml:/etc/prometheus/web.yml:ro
+      - ./data:/prometheus:U
+
+# 35.225.201.218:9090
+
